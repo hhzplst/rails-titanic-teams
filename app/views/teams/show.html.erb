@@ -1,0 +1,22 @@
+<% if @current_user %>
+  <%= render "navbar" %>
+<% end %> 
+<h1 class="text-center">
+<p class="glyphicon glyphicon-star"></p><%= @team.name %><p class="glyphicon glyphicon-star"></p>  
+</h1><br>
+
+<div class="col-md-8 col-md-offset-2">
+  <div class="jumbotron text-center">
+    <h3 class="teamTitle"><strong><%= @team.name %></strong></h3>
+    <p><i>"<%= @team.description %>"</i></p><br>
+    <h3>Team Members: </h4><br>
+    <% @team.superheros.each do |superhero| %>
+      <img src="<%= superhero.image_url %>" width="400px", height="200px">
+      <p>Name: <%= superhero.name %></p>
+      <p>Height: <%= superhero.height %></p>
+      <p>Bio: <%= superhero.bio %></p>
+      <hr><br>
+    <% end %>
+    <a href="/"><button class="btn btn-warning">Back</button></a> 
+  </div>
+</div>

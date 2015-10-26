@@ -1,0 +1,22 @@
+<%= render 'navbar' %>
+
+<div class="text-center">
+<h1><p class="glyphicon glyphicon-star"></p>All Superheros<p class="glyphicon glyphicon-star"></p><br></h1> <% if @admin_user %>
+  <%= link_to "Add a new Superhero", new_superhero_path %>
+<% end %> 
+<div>
+<br>
+
+<% @superheros.each do |superhero| %>
+  <div class="col-md-4">
+    <div class="jumbotron text-center">
+      <h3><strong><%= superhero.name %><strong></h3>
+     <%= link_to "View", superhero_path(superhero)%>
+      <hr>
+      <img src="<%= superhero.image_url %> " width: "400px", height="200px">
+      <p>Height: "<%= superhero.height %>"</i></p>
+      <p><i>"<%= superhero.bio %>"</i></p><br>
+      <a href="/"><button class="btn btn-info">Home</button></a>
+    </div>    
+  </div>
+<% end %>

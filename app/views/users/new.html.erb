@@ -1,0 +1,24 @@
+<h1 class="text-center">SIGN YOU UP in 2 seconds!</h1><hr>
+<div class="col-md-8 col-md-offset-2 text-center">
+  <% @user.errors.full_messages.each do |e| %>
+    <h2><span class="label label-danger"><%= e %></span></h2>
+  <% end %><br>
+  <%= form_for @user do |f| %>
+   <div class="col-md-4 col-md-offset-4">
+    <%= f.label "username:" %>
+    <%= f.text_field :username, class: "form-control" %>  
+   </div><br>
+   <div class="col-md-4 col-md-offset-4">
+    <%= f.label "password:" %>
+    <%= f.password_field :password, class: "form-control" %>
+   </div><br>
+   <div class="col-md-4 col-md-offset-4">
+    <%= f.label "Confirm Password: " %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+   </div><br>
+   <div class="col-md-4 col-md-offset-4">
+    <%= f.submit "sign up",class: "form-control btn btn-primary" %>
+   </div>
+  <% end %>
+</div>
+

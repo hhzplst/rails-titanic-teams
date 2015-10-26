@@ -1,0 +1,28 @@
+<% flash.each do |key, value| %>
+  <% if key == "notice" %>
+    <%= content_tag :div, value, class: "text-center alert alert-warning" %>
+  <% elsif key == "alert" %>
+    <%= content_tag :div, value, class: "text-center alert alert-danger" %>
+  <% else %>
+    <%= content_tag :div, value, class: "text-center alert alert-sucess" %>
+  <% end %>
+<% end %>
+
+<h1 class="text-center">LOG IN</h1><hr>
+<div class="col-md-8 col-md-offset-2 text-center">
+  <%= form_tag login_path do %>
+   <div class="col-md-4 col-md-offset-4">
+    <%= label_tag "username:" %>
+    <%= text_field_tag :username, params[:username], autofocus: true %>  
+   </div><br>
+   <div class="col-md-4 col-md-offset-4">
+    <%= label_tag "password:" %>
+    <%= password_field_tag :password%>
+   </div><br>
+   <div class="col-md-4 col-md-offset-4">
+    <%= submit_tag "log in",class: "btn btn-primary" %>
+   </div><br>
+    <%= link_to "Don't have an account? Sign up here", signup_path %>
+  <% end %>
+</div>
+

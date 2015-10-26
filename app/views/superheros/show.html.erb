@@ -1,0 +1,19 @@
+<%= render "navbar" %>
+<div class="col-md-4">
+  <div class="jumbotron text-center">
+    <h3><strong><%= @superhero.name %><strong></h3>
+    <% if @current_user %>
+      <%= render partial: "checkform", locals:{superhero: @superhero} %>
+    <% end %><hr>
+    <img src="<%= @superhero.image_url %> " width: "400px", height="200px">
+    <p>Height: "<%= @superhero.height %>"</i></p>
+    <p><i>"<%= @superhero.bio %>"</i></p><br>
+    <a href="/"><button class="btn btn-info">Home</button></a>
+    <a href="/superheros"><button class="btn btn-info">Back</button>
+    </a><br><br>
+    <% if @admin_user %>
+    <%= link_to "Edit this Superhero", edit_superhero_path  %> <br>
+    <%= link_to "Delete this Superhero", superhero_path(@superhero), method: "delete", data:{alert:"Are you Sure?"}  %>
+    <% end %>
+  </div>    
+</div>

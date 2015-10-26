@@ -1,0 +1,15 @@
+<%= render 'navbar' %>
+
+<h1 class="text-center">
+<p class="glyphicon glyphicon-star"></p>All Teams<p class="glyphicon glyphicon-star"></p>  
+</h1><br>
+
+<% @teams.each do |team| %>
+  <div class="col-md-4">
+    <div class="jumbotron text-center">
+      <h3 class="teamTitle"><strong><%= team.name %></strong></h3><hr>
+      <p><i>"<%= team.description %>"</i></p><br>
+      <a href="<%= team_path(team) %>"><button class="btn btn-info">More Info</button></a>
+    </div>    
+  </div>
+<% end %>
